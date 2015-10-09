@@ -1,1 +1,1 @@
-Open the MainScene file inside of Unity to get started
+Open the MainScene.unity file inside of Unity to get started
