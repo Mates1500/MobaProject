@@ -2,20 +2,28 @@
 using System.Collections;
 using System;
 
+struct flag{
+	public FlagBehavior fBeh;
+	public bool isCarryingFlag;
+}
+
 public class PlayerBehavior : MonoBehaviour {
+
 	Vector3 targetPoint;
 	NavMeshAgent navComponent;
 	ObjectGenericBehavior s; //<--------------
 	public bool reachedDestination;
+	public int flagsCaptured;
 	bool aboutToUseObject;
-	bool readyToUseObject;
+	flag fl;
 	// Use this for initialization
 	void Start () {
 		targetPoint = gameObject.transform.position;
 		navComponent = gameObject.GetComponent<NavMeshAgent>();
 		reachedDestination = true;
 		aboutToUseObject = false;
-		readyToUseObject = false;
+		fl.isCarryingFlag = false;
+		flagsCaptured = 0;
 	}
 
 	// Update is called once per frame
@@ -54,10 +62,23 @@ public class PlayerBehavior : MonoBehaviour {
 		get{return aboutToUseObject;}
 		set{aboutToUseObject = value;}
 	}
+	
 
-	public bool ReadyToUseObject
+	public bool IsCarryingFlag
 	{
-		get{return readyToUseObject;}
-		set{readyToUseObject = value;}
+		get{return fl.isCarryingFlag;}
+		set{fl.isCarryingFlag = value;}
+	}
+	
+	public int FlagsCaptured
+	{
+		get{return flagsCaptured;}
+		set{flagsCaptured = value;}
+	}
+
+	public FlagBehavior FlagRef
+	{
+		get{return fl.fBeh;}
+		set{fl.fBeh = value;}
 	}
 }

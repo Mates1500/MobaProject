@@ -23,13 +23,7 @@ public class CameraBehavior : MonoBehaviour {
 	{
 		Vector3 newPos = mCam.position;
 		mPos = Input.mousePosition;
-		if(mPos.x < movTol)
-		{
-			Debug.Log(newPos.x);
-			newPos.x-= speed;
-			Debug.Log(newPos.x);
-			Debug.Log("Called Left");
-		} //left
+		if(mPos.x < movTol) newPos.x-= speed; //left
 		if(mPos.x > Screen.width - movTol) newPos.x+= speed; //right
 		if(mPos.y < movTol) newPos.z -= speed; //down
 		if(mPos.y > Screen.height - movTol) newPos.z += speed; //up

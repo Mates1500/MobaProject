@@ -27,7 +27,6 @@ public class FloorBehavior : MonoBehaviour {
 			pos = mCam.ScreenToWorldPoint(pos); //Translation of mouseposition to a relative position in the world under the cursor
 			p.SetTargetPoint(pos.x, pos.z); //Using no Y for now, I'll expand the functionality later
 			p.AboutToUseObject = false;
-			p.ReadyToUseObject = false;
 			//Debug.Log("MouseDown Fired Up, Coords - X: " + pos.x + " Z:" + pos.z);
 			rayHits = false;
 		}
