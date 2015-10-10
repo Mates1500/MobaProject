@@ -17,6 +17,8 @@ public class FloorBehavior : MonoBehaviour {
 		Ray r = mCam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit rHit;
 		if (Physics.Raycast(r, out rHit, 30)) {
+			//Debug.DrawLine(r.origin, rHit.point, Color.cyan, 5.0f);
+			//Debug.Log (rHit.point);
 			rayHits = true;
 		}
 		//Debug.DrawRay(r.origin, r.direction * 100, Color.yellow);
@@ -24,8 +26,9 @@ public class FloorBehavior : MonoBehaviour {
 		{
 			Vector3 pos = Input.mousePosition;
 			pos.z = rHit.distance; //distance of the raycast reflection by the first object we mouse over
-			pos = mCam.ScreenToWorldPoint(pos); //Translation of mouseposition to a relative position in the world under the cursor
-			p.SetTargetPoint(pos.x, pos.z); //Using no Y for now, I'll expand the functionality later
+			//pos = mCam.ScreenToWorldPoint(pos); //Translation of mouseposition to a relative position in the world under the cursor
+			pos = rHit.point;
+			p.SetTargetPoint(pos.x, pos.y, pos.z); //Using no Y for now, I'll expand the functionality later
 			p.AboutToUseObject = false;
 			//Debug.Log("MouseDown Fired Up, Coords - X: " + pos.x + " Z:" + pos.z);
 			rayHits = false;

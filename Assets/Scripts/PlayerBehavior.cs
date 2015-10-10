@@ -28,9 +28,8 @@ public class PlayerBehavior : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		if(gameObject.transform.position != targetPoint)
-		{
+		if(!(Mathf.Approximately(targetPoint.x, transform.position.x) && Mathf.Approximately(targetPoint.z, transform.position.z))) 
+		{	//^Y doesn't matter for pick up and makes things more complicated for no good reason anyway
 			reachedDestination = false;
 			navComponent.SetDestination(targetPoint); //Movement specific stuff can be controlled in the Player NavMeshAgent component
 		}
@@ -46,12 +45,13 @@ public class PlayerBehavior : MonoBehaviour {
 		}
 	}
 
-	public void SetTargetPoint(float v1, float v3)
+	public void SetTargetPoint(float v1, float v2, float v3)
 	{
-		targetPoint = new Vector3(v1, gameObject.transform.position.y, v3);
+		Vector3 tempTargetPoint = new Vector3(v1, v2, v3);
+		if(tempTargetPoint != targetPoint) targetPoint = new Vector3(v1, v2, v3);
 	}
 
-	public void SetTargetPoint(float v1, float v3, ObjectGenericBehavior accessor)//<------------
+	public void SetTargetPoint(float v1, float v2, float v3, ObjectGenericBehavior accessor)//<------------
 	{
 		targetPoint = new Vector3(v1, gameObject.transform.position.y, v3);
 		s = accessor;

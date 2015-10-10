@@ -20,12 +20,12 @@ public class FlagBehavior : ObjectGenericBehavior {
 		p.FlagRef = this;
 	}
 
-	void Update()
+	protected void Update()
 	{
 		base.Update();
 		if(beingCarried)
 		{
-			transform.position = p.transform.position;
+			transform.position = p.transform.position; //anchors itself inside the player
 		}
 	}
 

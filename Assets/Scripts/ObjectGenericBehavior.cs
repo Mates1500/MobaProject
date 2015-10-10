@@ -16,11 +16,17 @@ public class ObjectGenericBehavior : MonoBehaviour {
 	}
 
 	protected void OnMouseOver () {
+		//Debug.Log ("Mouse Enter");
 		if(Input.GetMouseButton(1))
 		{
-			p.SetTargetPoint(r.GetX(), r.GetZ (), this);
+			//Debug.Log ("Flag Clicked");
+			p.SetTargetPoint(r.GetX(), p.transform.position.y, r.GetZ (), this);
 			p.AboutToUseObject = true;
 		}
+	}
+
+	void OnMouseExist(){
+		Debug.Log ("Mouse Leave");
 	}
 
 	

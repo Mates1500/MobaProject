@@ -28,5 +28,6 @@ public class CameraBehavior : MonoBehaviour {
 		if(mPos.y < movTol) newPos.z -= speed; //down
 		if(mPos.y > Screen.height - movTol) newPos.z += speed; //up
 		mCam.position = newPos;
+
 	}
 }
