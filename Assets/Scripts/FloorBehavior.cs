@@ -17,8 +17,9 @@ public class FloorBehavior : MonoBehaviour {
 		Ray r = mCam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit rHit;
 		if (Physics.Raycast(r, out rHit, 30)) {
-			//Debug.DrawLine(r.origin, rHit.point, Color.cyan, 5.0f);
-			//Debug.Log (rHit.point);
+			/*Debug.DrawLine(r.origin, rHit.point, Color.cyan, 5.0f);
+			Debug.Log (rHit.point);
+			Debug.Log (rHit.distance);*/
 			rayHits = true;
 		}
 		//Debug.DrawRay(r.origin, r.direction * 100, Color.yellow);
