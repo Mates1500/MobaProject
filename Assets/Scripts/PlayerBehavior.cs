@@ -5,7 +5,10 @@ using System;
 struct flag{
 	public FlagBehavior fBeh;
 	public bool isCarryingFlag;
+	public team flagTeam;
 }
+
+public enum team{Green, Red};
 
 public class PlayerBehavior : MonoBehaviour {
 
@@ -14,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour {
 	ObjectGenericBehavior s; //<--------------
 	public bool reachedDestination;
 	public int flagsCaptured;
+	public team playerTeam;
 	bool aboutToUseObject;
 	flag fl;
 	// Use this for initialization
@@ -80,5 +84,10 @@ public class PlayerBehavior : MonoBehaviour {
 	{
 		get{return fl.fBeh;}
 		set{fl.fBeh = value;}
+	}
+
+	public team FlagTeam{
+		get{return fl.flagTeam;}
+		set{fl.flagTeam = value;}
 	}
 }

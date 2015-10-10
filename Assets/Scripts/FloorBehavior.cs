@@ -28,7 +28,8 @@ public class FloorBehavior : MonoBehaviour {
 			pos.z = rHit.distance; //distance of the raycast reflection by the first object we mouse over
 			//pos = mCam.ScreenToWorldPoint(pos); //Translation of mouseposition to a relative position in the world under the cursor
 			pos = rHit.point;
-			p.SetTargetPoint(pos.x, pos.y, pos.z); //Using no Y for now, I'll expand the functionality later
+			//Debug.Log (pos);
+			p.SetTargetPoint(pos.x, pos.y, pos.z);
 			p.AboutToUseObject = false;
 			//Debug.Log("MouseDown Fired Up, Coords - X: " + pos.x + " Z:" + pos.z);
 			rayHits = false;
